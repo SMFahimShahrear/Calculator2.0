@@ -1,0 +1,93 @@
+* 
+{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body 
+{
+  background: #333;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#mainWrapper
+{
+  display: flex;
+}
+#calculatorBody
+{
+  flex: 4;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+#calculatorBody > div 
+{
+  border: yellow solid 5px;
+  cursor: pointer;
+  height: 10vh;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.1s ease-in;
+}
+
+#calculatorBody > div:hover 
+{
+  opacity: 0.6;
+  transform: scale(0.98);
+}
+
+
+#calculatorBody #disp
+{
+  height: 12vh;
+  font-size: 2rem;
+  cursor: text;
+  padding: 1.5rem;
+  text-align: right;
+  display:inline-block;
+}
+
+#calculatorBody #disp:hover
+{
+  opacity: 1;
+  transform: scale(1);
+}
+
+#calculatorBody > div:nth-of-type(1) 
+{
+  grid-column: 1 / 5;
+}
+
+#history
+{
+  flex: 1;
+  padding: 1rem 1rem;
+}
+
+#history .hist
+{
+  font-size: 1.7rem;
+  line-height: 2rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#history #clearHist
+{
+  font-size: 1rem;
+  line-height: 2rem;
+}
+
+#history #clearHist:hover
+{
+  cursor: pointer;
+  color: #4c4cdc;
+}
