@@ -12,6 +12,7 @@ const num8 = document.getElementById("num8");
 const num9 = document.getElementById("num9");
 const num0 = document.getElementById("num0");
 const numP = document.getElementById("numP");
+const numPer = document.getElementById("numPer");
 
 const numC = document.getElementById("clear");
 const numA = document.getElementById("numA");
@@ -19,6 +20,11 @@ const numS = document.getElementById("numS");
 const numM = document.getElementById("numM");
 const numD = document.getElementById("numD");
 const equal = document.getElementById("equals");
+const spanYellow = document.getElementById("spanYellow");
+const spanRed = document.getElementById("spanRed");
+const spanGreen = document.getElementById("spanGreen");
+const spanAqua = document.getElementById("spanAqua");
+const spanPink = document.getElementById("spanPink");
 
 let history = document.getElementsByClassName('hist');
 let clearHist = document.getElementById('clearHist');
@@ -29,6 +35,7 @@ const Total = [];
 let i = 0;
 let n = 0;
 let h = 0;
+flag = 0;
 
 // reset variables with "C"
 numC.addEventListener("click", function () {
@@ -87,6 +94,11 @@ numP.addEventListener("click", function () {
     disp.innerHTML = (count2 + count1);
     console.log(count2 + count1);
 })
+numPer.addEventListener("click", function () {
+    count1 += "%";
+    disp.innerHTML = (count2 + count1);
+    console.log(count2 + count1);
+})
 // Plus
 numA.addEventListener("click", function () {
     Total[i] = Number(count1);
@@ -107,6 +119,18 @@ numS.addEventListener("click", function () {
     disp.innerHTML = count2;
     i += 2;
 })
+
+//percentage
+for(n=0; n <= Total.length -1; n++){
+    if(Total[n] == "%")
+    {
+        let x = Total[n-1]*(Total[n+1]/100);
+        let y = n-1;
+        Total.splice(y, 3, x);
+        n = n-2;
+    }    
+}
+
 // Multiply
 numM.addEventListener("click", function () {
     Total[i] = Number(count1);
@@ -167,13 +191,24 @@ equal.addEventListener("click", function () {
            Total.splice(y, 3, x);
            n = n-2;
         }    
-    }
-    
-    // Add result on History
+    }  
+
     disp.innerHTML = Total[0];
+    flag=1;
+    // Add result on History
     if(h<10){
         history[h].innerHTML = Total[0];
         h++;
+    }
+
+    if(flag == 1)
+    {
+        count1 = '';
+        count2 = '';
+        const Total = [];
+        i = 0;
+        n = 0;
+        flag = 0;
     }
 })
 
@@ -183,4 +218,23 @@ clearHist.addEventListener("click", function () {
     {        
         history[h].innerHTML = "";
     }
+})
+
+document.querySelectorAll("#calculatorBody > div");
+
+
+spanYellow.addEventListener("click",function() {
+    document.querySelectorAll("#calculatorBody > div").forEach(el => el.style.border="yellow 5px solid");
+})
+spanRed.addEventListener("click",function() {
+    document.querySelectorAll("#calculatorBody > div").forEach(el => el.style.border="red 5px solid");
+})
+spanGreen.addEventListener("click",function() {
+    document.querySelectorAll("#calculatorBody > div").forEach(el => el.style.border="green 5px solid");
+})
+spanAqua.addEventListener("click",function() {
+    document.querySelectorAll("#calculatorBody > div").forEach(el => el.style.border="aqua 5px solid");
+})
+spanPink.addEventListener("click",function() {
+    document.querySelectorAll("#calculatorBody > div").forEach(el => el.style.border="#f4187e 5px solid");
 })

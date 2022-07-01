@@ -16,6 +16,7 @@ body
 {
   display: flex;
 }
+
 #calculatorBody
 {
   flex: 4;
@@ -29,8 +30,6 @@ body
   border: yellow solid 5px;
   cursor: pointer;
   height: 10vh;
-  background-size: cover;
-  background-attachment: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,10 +49,13 @@ body
 {
   height: 12vh;
   font-size: 2rem;
+  font-weight: 500;
   cursor: text;
   padding: 1.5rem;
   text-align: right;
-  display:inline-block;
+  display: block;
+  background: #aaaafb;
+  color: #000;
 }
 
 #calculatorBody #disp:hover
@@ -71,6 +73,7 @@ body
 {
   flex: 1;
   padding: 1rem 1rem;
+  border: blueviolet solid 5px;
 }
 
 #history .hist
@@ -90,4 +93,48 @@ body
 {
   cursor: pointer;
   color: #4c4cdc;
+}
+
+#colors
+{
+  margin-top: 2rem;
+}
+
+#colors span
+{
+  padding: 0.5rem 1rem;
+  border: #fff 3px solid;
+  border-radius: 50%;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+#colors #spanYellow
+{
+  background: yellow;
+}
+#colors #spanRed
+{
+  background: red;
+}
+#colors #spanGreen
+{
+  background: green;
+}
+#colors #spanAqua
+{
+  background: aqua;
+}
+#colors #spanPink
+{
+  background: #f4187e;
+}
+
+@media(max-width: 500px),(max-height: 500px)
+{
+  #calculatorBody #disp{
+    height: 12vh;
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
 }
