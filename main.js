@@ -92,13 +92,13 @@ num0.addEventListener("click", function () {
 numP.addEventListener("click", function () {
     count1 += ".";
     disp.innerHTML = (count2 + count1);
-    console.log(count2 + count1);
 })
 numPer.addEventListener("click", function () {
     count1 += "%";
     disp.innerHTML = (count2 + count1);
-    console.log(count2 + count1);
 })
+
+
 // Plus
 numA.addEventListener("click", function () {
     Total[i] = Number(count1);
@@ -119,17 +119,6 @@ numS.addEventListener("click", function () {
     disp.innerHTML = count2;
     i += 2;
 })
-
-//percentage
-for(n=0; n <= Total.length -1; n++){
-    if(Total[n] == "%")
-    {
-        let x = Total[n-1]*(Total[n+1]/100);
-        let y = n-1;
-        Total.splice(y, 3, x);
-        n = n-2;
-    }    
-}
 
 // Multiply
 numM.addEventListener("click", function () {
@@ -152,6 +141,7 @@ numD.addEventListener("click", function () {
     disp.innerHTML = count2;
     i += 2;
 })
+
 
 //Equal Button
 equal.addEventListener("click", function () {
@@ -218,11 +208,12 @@ clearHist.addEventListener("click", function () {
     {        
         history[h].innerHTML = "";
     }
+    h = 0;
 })
 
 document.querySelectorAll("#calculatorBody > div");
 
-
+//color customization
 spanYellow.addEventListener("click",function() {
     document.querySelectorAll("#calculatorBody > div").forEach(el => el.style.border="yellow 5px solid");
 })
